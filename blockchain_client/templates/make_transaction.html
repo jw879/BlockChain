@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>学分银行</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/custom.css" rel="stylesheet">
+
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">学分银行</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">节点生成
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/make/transaction">成绩上传</a>
+              <span class="sr-only">(current)</span>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/view/transactions">查看成绩</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+
+          <div class="card-body">
+            <h4 class="card-title">成绩上传</h4>
+            <p class="card-text">填写相关信息并单击“上传”按钮完成操作</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+
+    <div class="container alert alert-secondary">
+    <form id="transaction_form">
+
+      <!--js添加-->
+        <script>
+            var messages = new Array();
+            messages[0] = "";
+            messages[1] = "30819f300d06092a864886f70d010101050003818d003081890281810097a375f216a34f83ceeed9a353142dcd52b43bd10d3bf9ce7d743003398c26d377edf33b61117a58607d4c1b5e581232f0f06eb7d1ae2e40173812b5196374f9e8cf6366ea60b085f7fe344985747b5f1c84bf1ce39b8e7e82bf4be7df5f0dcfd60a6963e59ba94f50e3cf193485474efb4c5b465f47d1fb9ba0f07dff67f2b10203010001";
+            messages[2] = "hqwerqwerm";
+            messages[3] = "hasdfasdfcom";
+
+            var remark = new Array();
+            remark[0] = "";
+            remark[1] = "3082025c0201000281810097a375f216a34f83ceeed9a353142dcd52b43bd10d3bf9ce7d743003398c26d377edf33b61117a58607d4c1b5e581232f0f06eb7d1ae2e40173812b5196374f9e8cf6366ea60b085f7fe344985747b5f1c84bf1ce39b8e7e82bf4be7df5f0dcfd60a6963e59ba94f50e3cf193485474efb4c5b465f47d1fb9ba0f07dff67f2b10203010001028181008aab7504ba270664272ccde249eb3e2771e6587d4878fc6d14d4d7c35b310ba07f201f3ac1fdd5c0541cc12896123c32519bcde453dfd173d2c7f8739c90133bbd939f46308ab30860ac224d7f0c031181af502c92c1bf4d1978306d73ba1414641802fce21fff54ae4bed613e00e42b49ae734289a9e0bef25af27c27d75c41024100b7187a27c06c5306d32173376a6d6ff82ed18119da9015b9f03f38dc8326e166b7f4b8fc4fe5d100eed03e11f912941af675940d01fc2be1387ad0aefc90304d024100d4047602c3fb37f20c7ed62e9dcc2c939f52b2be7da145f57c7cec26498321770ab97acd4b0ec5823715db8052d467dec06fa8f5e343ea68d5468869c4351df50240136d8b78b0584e2f0934216f9de162e228c59e374a13c3da68fdac60e9a1b4851bbbe1ed13e544da1e7d06390dfec4ac5fbe7629332eb8d13b16fd11b446f07902400b024c4a6a78c1f7ec942d74f036a8dde578fad50f5aef7206cbc9cb5727daf5fe75911dd5d6e784926dad1f25ade7d2d6353615c67e414ebe3c525b03982a7d024046a43775eb8ce68a7261695f3ff6e09978bb92deda2f99972d5c6a9d3c24b366c0b5cf9224f1e478584ae648944312a7e8c61f47efd5ad12900ef0d3f321bedb";
+            remark[2] = "http://345";
+            remark[3] = "http://567";
+        //根据需要，这里应该随着选项的改变而增减项目
+
+            function messageReveal() {
+                var messageindex = document.getElementById("a1").selectedIndex;
+                //取得当前下拉菜单选定项目的序号
+                helpmsg = messages[messageindex];
+                remarkmsg = remark[messageindex];
+                //根据序号取得当前选项的说明
+				document.getElementById("sender_address").value = helpmsg;
+				document.getElementById("sender_private_key").value = remarkmsg;
+        //将说明写进文框
+            }
+
+        </script>
+
+        <br>
+
+        <div class="row">
+          <label class="col-sm-2">Select User:</label>
+          <div class="col-sm-10">
+              <select type="text" id="a1" rows="2" class="form-control" style="width: 11%" OnChange="messageReveal()">
+                  <option value="0">user_id
+                  <option>user_01
+                  <option>user_02
+                  <option>user_03
+              </select>
+          </div>
+        </div>
+
+        <br>
+
+       
+        <div class="row">
+          <label class="col-sm-2">Public Key:</label>
+          <div class="col-sm-10">
+            <input type="text" name="sender_address" id="sender_address" rows="2" class="form-control">
+
+          </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+          <label class="col-sm-2">Private Key:</label>
+          <div class="col-sm-10">
+            <input type="text" name="sender_private_key" id="sender_private_key" rows="2" class="form-control">
+          </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+          <label class="col-sm-2">接收地址:</label>
+          <div class="col-sm-10">
+            <input type="text" name="recipient_address" id="recipient_address" rows="2" class="form-control" value="30819f300d06092a864886f70d010101050003818d003081890281810097a375f216a34f83ceeed9a353142dcd52b43bd10d3bf9ce7d743003398c26d377edf33b61117a58607d4c1b5e581232f0f06eb7d1ae2e40173812b5196374f9e8cf6366ea60b085f7fe344985747b5f1c84bf1ce39b8e7e82bf4be7df5f0dcfd60a6963e59ba94f50e3cf193485474efb4c5b465f47d1fb9ba0f07dff67f2b10203010001" readonly>
+          </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+          <label class="col-sm-2">备注信息:
+            <!--<button type="button" onclick = "copyText()">生成</button>-->
+          </label>
+          <div class="col-sm-10">
+            <input type="text" name="amount" id="amount" rows="2" class="form-control">
+          </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <input type="button" id="generate_transaction" class="btn btn-primary btn-lg" value="上传">
+          </div>
+        </div>
+
+        <br>
+
+    </form>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal modal-alert fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+      <div class="modal-dialog">
+
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <div class="modal-title col-md-10">填写相关信息并单击“上传”按钮来完成操作</div>
+            <button type="button" class="close col-md-2" data-dismiss="modal" aria-hidden="true">&times;</button>
+          </div>
+
+          <div class="modal-body">
+
+            <form id="confirmation_transaction_form">
+
+                <div class="row">
+                  <label class="col-sm-12">Public Key:</label>
+                  <div class="col-sm-12">
+                    <input type="text" name="sender_address" id="confirmation_sender_address" rows="2" class="form-control" readonly>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <label class="col-sm-12">接收地址:</label>
+                  <div class="col-sm-12">
+                    <input type="text" name="recipient_address" id="confirmation_recipient_address" rows="2" class="form-control" readonly>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <label class="col-sm-12">备注信息: </label>
+                  <div class="col-sm-12">
+                    <input type="text" name="amount" id="confirmation_amount" rows="2" class="form-control" readonly>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <label class="col-sm-12">Transaction Signature:</label>
+                  <div class="col-sm-12">
+                    <input type="text" name="signature" id="transaction_signature" rows="2" class="form-control" readonly>
+                  </div>
+                </div>
+
+            </form>
+
+
+            <div class="row">
+              <label class="col-sm-12">Blockchain Node URL:</label>
+              <div class="col-sm-12">
+                <input type="text" name="node_url" id="node_url" rows="2" class="form-control" value="http://127.0.0.1:5000">
+              </div>
+            </div>
+
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">取消</button>
+            <button type="button" id="button_confirm_transaction" class="btn btn-success">确认</button>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- Alert Message for successful transaction -->
+    <div class="modal modal-alert fade" id="success_transaction_modal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          </div>
+
+          <div class="modal-body">
+            <div class="alert alert-success" role="alert">
+              <h4 class="alert-heading">上传成功！!</h4>
+              <p>You successfully completed your transaction. It will be added to the next block.</p>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" id="button_confirm_transaction" class="btn btn-success" data-dismiss="modal">OK</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/static/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+    <script>
+
+   $(function () {
+          $("#generate_transaction").click(function () {
+
+            $.ajax({
+              url: "/generate/transaction",
+              type: "POST",
+              dataType : 'json',
+              data: $('#transaction_form').serialize(),
+              success: function(response){
+
+                document.getElementById("confirmation_sender_address").value = response["transaction"]["sender_address"];
+                document.getElementById("confirmation_recipient_address").value = response["transaction"]["recipient_address"];
+                document.getElementById("confirmation_amount").value = response["transaction"]["value"];
+                document.getElementById("transaction_signature").value = response["signature"];
+
+
+
+                $("#basicModal").modal('show');
+
+              },
+              error: function(error){
+                console.log(error);
+              }
+            });
+
+          });
+      });
+
+
+      $(function () {
+          $("#button_confirm_transaction").click(function () {
+            //console.log($('#confirmation_transaction_form').serialize());
+
+
+            $.ajax({
+              url: document.getElementById("node_url").value + "/transactions/new",
+              type: "POST",
+              headers: {'Access-Control-Allow-Origin':'*'},
+              dataType : 'json',
+              data: $('#confirmation_transaction_form').serialize(),
+              success: function(response){
+
+                //reset both forms
+                $("#transaction_form")[0].reset();
+                $("#confirmation_transaction_form")[0].reset();
+
+                //clean text boxes
+                $("#sender_address").val("");
+                $("#sender_private_key").val("");
+                $("#recipient_address").val("");
+                $("#amount").val("");
+
+                $("#basicModal").modal('hide');
+                $("#success_transaction_modal").modal('show');
+
+              },
+              error: function(error){
+                console.log(error);
+              }
+            });
+
+          });
+      });
+
+    </script>
+
+
+  </body>
+
+</html>
